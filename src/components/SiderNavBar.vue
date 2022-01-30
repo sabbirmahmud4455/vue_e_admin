@@ -10,8 +10,8 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <router-link class="js-arrow" :to="{name: 'Home'}">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</router-link>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="index.html">Dashboard 1</a>
@@ -28,8 +28,10 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
+                            <router-link :to="{name: 'UserList'}">
+                               <i class="fas fa-users"></i> 
+                               Users
+                            </router-link>
                         </li>
                         <li>
                             <a href="table.html">
