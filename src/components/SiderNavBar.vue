@@ -34,6 +34,12 @@
                             </router-link>
                         </li>
                         <li>
+                            <router-link :to="{name: 'UserRoleList'}">
+                               <i class="fas fa-user   "></i>
+                               User Role
+                            </router-link>
+                        </li>
+                        <li>
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
