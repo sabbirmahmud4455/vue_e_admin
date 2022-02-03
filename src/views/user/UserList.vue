@@ -200,7 +200,6 @@ export default {
   name: 'Home',
   data: function () {
     return {
-  
       users: [],
       createForm: {
         name: '',
@@ -225,11 +224,12 @@ export default {
       axios({
         method: 'get', //you can set what request you want to be
         url: 'http://localhost:3000/user',
+        withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
         }
       }).then((response) => { 
-        this.users = response.data ;      
+        this.users = response.data ;   
       }).catch(function(error) {
         console.log(error);
       })
@@ -240,6 +240,7 @@ export default {
       axios({
         method: 'POST', //you can set what request you want to be
         url: 'http://localhost:3000/user',
+        withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -274,6 +275,7 @@ export default {
       axios({
         method: 'PUT', //you can set what request you want to be
         url: `http://localhost:3000/user/update/${this.editForm.id}`,
+        withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -291,6 +293,7 @@ export default {
       axios({
         method: 'DELETE', //you can set what request you want to be
         url: `http://localhost:3000/user/${id}`,
+        withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
         }

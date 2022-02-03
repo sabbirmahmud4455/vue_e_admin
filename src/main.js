@@ -2,10 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import jquery from '../node_modules/jquery/dist/jquery';
-
-Vue.use(jquery);
-
 Vue.config.productionTip = false
 
 new Vue({
