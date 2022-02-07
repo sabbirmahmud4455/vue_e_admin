@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import UserList from '../views/user/UserList.vue'
 import Login from '../views/Login.vue';
+import store from '../store';
 
 Vue.use(VueRouter)
 
@@ -29,5 +30,22 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+
+  store.dispatch('authCheck');
+
+  const auth = store.getters.auth;
+  
+  if (to.name !== 'Login' && auth == false) {
+    next({ name: 'Login' })
+  } else if (to.name == 'Login' && auth == true) {
+    next(router.back())
+  } else {
+    next()
+  }
+})
+
+
 
 export default router

@@ -10,7 +10,7 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form @submit.prevent="loginSubmit">
+                            <form @submit.prevent="loginSubmit(loginForm)">
                                 <div class="form-group">
                                     <label>Email Address</label>
                                     <input v-model="loginForm.email" class="au-input au-input--full" type="email" name="email" placeholder="Email" required>
@@ -51,9 +51,7 @@
 </template>
 
 <script>
-import axios from 'axios';
-import router from '../router/index'
-
+import { mapActions } from 'vuex';
 
 export default {
     data: () => {
@@ -62,27 +60,12 @@ export default {
                 email: '',
                 password: ''
             }
-
         }
     },
 
   methods: {
-    loginSubmit:  function() {
+      ...mapActions(['loginSubmit'])
+  },
 
-      axios({
-        method: 'post', //you can set what request you want to be
-        url: 'http://localhost:3000/login',
-        withCredentials: true,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        data: this.loginForm
-      }).then(() => { 
-        router.push("/")
-      }).catch(function(error) {
-        console.log(error);
-      })
-    },
-  }
 }
 </script>

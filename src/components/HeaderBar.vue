@@ -129,8 +129,19 @@
 									<img src="/assets/images/icon/avatar-01.jpg" alt="John Doe" />
 								</div>
 								<div class="content">
-									<a class="js-acc-btn" href="#">john doe</a>
+									<div class="dropdown show">
+										<a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<span v-if="authUser.name">{{ authUser.name }}</span>
+										</a>
+
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+											<a class="dropdown-item" href="#">Action</a>
+											<a class="dropdown-item" href="#">Another action</a>
+											<a class="dropdown-item" @click="logoutSubmit">Logout</a>
+										</div>
+									</div>
 								</div>
+
 								<div class="account-dropdown js-dropdown">
 									<div class="info clearfix">
 										<div class="image">
@@ -175,11 +186,13 @@
 </template>
 
 <script>
-export default {
 
+import { mapGetters , mapActions } from 'vuex';
+
+export default {
+	methods: {
+		...mapActions(['logoutSubmit']),
+	},
+	computed: mapGetters(['authUser'])
 }
 </script>
-
-<style>
-
-</style>

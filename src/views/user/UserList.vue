@@ -192,15 +192,15 @@
 </template>
 
 <script>
-import HeaderBar from '@/components/Header.vue'
+import HeaderBar from '@/components/HeaderBar.vue'
 import SiderNavBar from '@/components/SiderNavBar.vue'
 import axios from 'axios';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'Home',
   data: function () {
     return {
-      users: [],
       createForm: {
         name: '',
         email: '',
@@ -220,22 +220,8 @@ export default {
     }
   },
   methods: {
-    getUsers:  function() {
-      axios({
-        method: 'get', //you can set what request you want to be
-        url: 'http://localhost:3000/user',
-        withCredentials: true,
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      }).then((response) => { 
-        this.users = response.data ;   
-      }).catch(function(error) {
-        console.log(error);
-      })
-
-    },
-
+    ...mapActions(['getUsers']),
+    
     createUser: function() {
       axios({
         method: 'POST', //you can set what request you want to be
@@ -305,10 +291,13 @@ export default {
     }
 
   },
+  computed: mapGetters(['users']),
 
-  mounted() {
+  mounted () {
     this.getUsers()
   },
+
+  
   components: {
     HeaderBar,
     SiderNavBar

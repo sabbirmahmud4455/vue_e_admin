@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import HeaderBar from '@/components/Header.vue'
+import HeaderBar from '@/components/HeaderBar.vue'
 import SiderNavBar from '@/components/SiderNavBar.vue'
 
 export default {
