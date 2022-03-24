@@ -33,12 +33,14 @@
                                Users
                             </router-link>
                         </li>
+
                         <li>
-                            <router-link :to="{name: 'UserRoleList'}">
-                               <i class="fas fa-user   "></i>
-                               User Role
+                            <router-link :to="{name: 'Category'}">
+                               <i class="fas fa-users"></i> 
+                               Category
                             </router-link>
                         </li>
+                        
                         <li>
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
