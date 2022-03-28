@@ -140,14 +140,7 @@
                           <label for="">Select Parent</label>
                           <select v-model="createForm.parentCategory" class="form-control" name="" id="">
                             <option selected value="">Select Category</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Manager</option>
-                            <option value="2">Manager</option>
-                            <option value="2">Manager</option>
-                            <option value="2">Manager</option>
-                            <option value="2">Manager</option>
-                            <option value="2">Manager</option>
-                            <option value="2">Manager</option>
+                            <option v-for="(item, index) in this.categories" :key="index" :value="item.id">{{ item.name }}</option>
                           </select>
                         </div>
                       </div>
@@ -316,15 +309,15 @@ export default {
           'Content-Type': 'application/json',
         },
         data: this.createForm
-      }).then(() => {
+      }).then(() => { 
         this.getCategories()
-        document.getElementById('category_create').click();
-        this.createForm.name= '';
-        this.createForm.email= '';
-        this.createForm.phone= '';
-        this.createForm.category_role= '';
-        this.createForm.password= '';
-        this.createForm.confirm_password= '';
+        // document.getElementById('category_create').click();
+        // this.createForm.name= '';
+        // this.createForm.email= '';
+        // this.createForm.phone= '';
+        // this.createForm.category_role= '';
+        // this.createForm.password= '';
+        // this.createForm.confirm_password= '';
 
       }).catch(function(error) {
           // handle error
