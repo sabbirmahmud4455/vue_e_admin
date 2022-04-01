@@ -225,7 +225,7 @@ export default {
     createUser: function() {
       axios({
         method: 'POST', //you can set what request you want to be
-        url: 'http://localhost:3000/user',
+        url: 'user',
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ export default {
     updateUser: function(){
       axios({
         method: 'PUT', //you can set what request you want to be
-        url: `http://localhost:3000/user/update/${this.editForm.id}`,
+        url: `user/update/${this.editForm.id}`,
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -278,7 +278,7 @@ export default {
     userDelete: function(id){
       axios({
         method: 'DELETE', //you can set what request you want to be
-        url: `http://localhost:3000/user/${id}`,
+        url: `user/${id}`,
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',

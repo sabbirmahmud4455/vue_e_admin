@@ -15,19 +15,24 @@ const getters = {
 
 const actions = {
     async loginSubmit({ commit }, data) {
+
         await axios({
         method: 'post', //you can set what request you want to be
-        url: 'http://localhost:3000/login',
+        url: 'login',
         withCredentials: true,
         headers: {
             'Content-Type': 'application/json',
         },
         data: data
         }).then(() => { 
+
+            
             const cookieValue = document.cookie
                 .split('; ')
                 .find(row => row.startsWith('user='))
                 .split('=')[1];
+
+                console.log(cookieValue);
 
                 const authUser = cookieValue ? decodeURIComponent(cookieValue) : null
 
@@ -41,7 +46,7 @@ const actions = {
     async logoutSubmit({ commit }){
         await axios({
             method: 'POST', //you can set what request you want to be
-            url: 'http://localhost:3000/logout',
+            url: 'logout',
             withCredentials: true,
             headers: {
             'Content-Type': 'application/json',

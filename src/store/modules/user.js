@@ -13,7 +13,7 @@ const actions = {
     async getUsers({ commit }){
         axios({
             method: 'get', //you can set what request you want to be
-            url: 'http://localhost:3000/user',
+            url: 'user',
             withCredentials: true,
             headers: {
               'Content-Type': 'application/json',
