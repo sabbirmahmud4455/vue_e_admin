@@ -3,6 +3,14 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import UserList from '../views/user/UserList.vue'
 import Login from '../views/Login.vue';
+
+//category 
+import Category from '../views/category/category_list.vue';
+
+
+
+
+
 import store from '../store';
 
 Vue.use(VueRouter)
@@ -22,7 +30,17 @@ const routes = [
     path: '/users',
     name: 'UserList',
     component: UserList
+  },
+
+
+  //category
+  {
+    path: '/category',
+    name: 'Category',
+    component: Category,
   }
+
+
 ]
 
 const router = new VueRouter({
